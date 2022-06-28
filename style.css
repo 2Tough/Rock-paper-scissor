@@ -5,10 +5,27 @@ body {
 
 .hero {
     margin: auto;
-    background: gray;
+    background: white;
     
 }
 
-div {
-    color: blue
+.rock-img {
+    background: url(./images/rock.png);
+    background-size: contain;
+    width: 10rem;
+    height: 10rem;
+}
+
+.paper-img {
+    background: url(./images/paper.jpg);
+    background-size: contain;
+    width: 10rem;
+    height: 10rem;
+}
+
+.scissor-img {
+    background: url(./images/scissor.jpg);
+    background-size: contain;
+    width: 10rem;
+    height: 10rem;
 }
