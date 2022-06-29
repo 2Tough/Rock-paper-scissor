@@ -3,12 +3,51 @@ body {
     background-color: cornsilk;
 }
 
+.random-btn {
+    padding: 1.5rem 3rem;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.hand {
+    margin: 3rem
+}
+
 .hero {
-    margin: auto;
-    background: gray;
+    
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     
 }
 
-div {
-    color: blue
+.rock-img {
+    background: url(./images/rock.png);
+    background-size: cover;
+    padding: 5rem;
+    cursor: pointer;
+    border: none;
+}
+
+.paper-img {
+    background: url(./images/paper.jpg);
+    background-size: cover;
+    padding: 5rem;
+    cursor: pointer;
+    border: none;
+}
+
+.scissor-img {
+    background: url(./images/scissor.webp);
+    background-size: cover;
+    padding: 5rem;
+    cursor: pointer;
+    border: none;
+}
+
+.elements {
+    display: flex;
 }
