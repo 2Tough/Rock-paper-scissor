@@ -8,10 +8,12 @@ body {
     border-radius: 5px;
     font-size: 18px;
     font-weight: 900;
+    display: block;
 }
 
 .hand {
-    margin: 3rem
+    margin: 3rem;
+    
 }
 
 .hero {
@@ -50,4 +52,26 @@ body {
 
 .elements {
     display: flex;
+}
+
+.hand:hover {
+    animation: shake 0.6s infinite;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+    25% {
+        transform: translate(1px,1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px,-1px) rotate(-1deg);
+    }
+    75% {
+        transform: translate(2px,-1px) rotate(2deg);
+    }
+    100% {
+        transform: translate(-1px,1px) rotate(-1deg);
+    }
 }
