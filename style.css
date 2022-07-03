@@ -3,16 +3,14 @@ body {
     background-color: cornsilk;
 }
 
-.random-btn {
-    padding: 1.5rem 3rem;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: 900;
-    display: block;
-}
-
 .hand {
     margin: 3rem;
+}
+
+#winnerEl {
+    font-size: 3rem;
+    font-weight: 900;
+    padding-top: 0.5em;
     
 }
 
@@ -23,8 +21,9 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    border: double orange 8px;
     
-}
+    }
 
 .rock-img {
     background: url(./images/rock.png);
@@ -32,12 +31,7 @@ body {
     padding: 5rem;
     cursor: pointer;
     border: none;
-}
-
-.showRock {
-     
-     background-size: cover;
-     width: 10rem;
+    background-color: white;
 }
 
 .paper-img {
@@ -56,8 +50,70 @@ body {
     border: none;
 }
 
-.elements {
+.showRock {
+     
+     background-size: cover;
+     width: 10rem;
+     border: solid blue 1px;
+     
+}
+
+#vsEL {
+    
+    padding: 2rem;
+    margin: 2rem;
+    font-size: 4rem;
+     text-align: center;
+    font-weight: 900;
+}
+
+#rival {
     display: flex;
+    flex-direction: column;
+    font-size: 3rem;
+    font-weight: 900;
+    
+    align-content: space-between;
+    text-align: center;
+    
+}
+
+
+
+.rivalElements {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+
+.resultElements {
+    
+    display: flex;
+    justify-content: space-around;
+    justify-content: center;
+    flex-direction: row;
+    padding: 3rem;
+    align-items: center;
+    
+}
+
+.elements {
+    padding: 2rem;
+    display: flex;
+
+}
+
+button {
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid black
+}
+
+#resetEl {
+    margin-bottom: 1rem;
 }
 
 .hand:hover {
