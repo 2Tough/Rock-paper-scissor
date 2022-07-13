@@ -1,228 +1,178 @@
-// Variables
-const hand = document.getElementById("hand")
+// Scores
 
-let resultsContainer = document.getElementById("results-container")
-let elementsEl = document.getElementById("elementsEl")
-const random = document.getElementById("random")
-let rivalHand = document.getElementById('rival')
-let winnerEl = document.getElementById("winnerEl")
-let rocky = document.getElementById("rock")
-let papy = document.getElementById("paper")
-let scissy = document.getElementById("scissor")
+let scoreHuman = document.getElementById('scoreHuman')
+let scorePc = document.getElementById("scorePc")
+
+// Counter
+let humanScore = 0
+let computerScore = 0
 
 
-const rock = {
-    element: "rock",
-    image: "images/rock.png"
-}
+// Buttons
+const resetEl = document.getElementById('resetEl')
 
-const paper = {
-        element: "paper",
-    image: "images/paper.jpg"
-}
 
-const scissor = {
-        element: "scissor",
-    image: "images/scissor.webp"
-}
+// Elements
+const elementsContainer = document.getElementById('elementsEl')
+const rock = document.getElementById('rock')
+const paper = document.getElementById('paper')
+const scissor = document.getElementById('scissor')
+let firstEl = document.getElementById('firstEl')
+let secondEl = document.getElementById('secondEl')
 
-function renderElement(data) {
+const start = document.getElementById('start')
 
-document.getElementById("resetEl").style.display = 'none'   
-document.getElementById(data.element).innerHTML = `<div>
-                            <div class="${data.element}-img hand" class="resultElements">
-                             </div>
-                            </div>`
-                            
-document.getElementById(data.element).addEventListener('click', function() {
-    if (data.element === "rock") {
-        document.getElementById("paper").style.display = 'none'
-        document.getElementById("scissor").style.display = 'none'
-        rollOfHand(data.element)
+const hero = document.getElementById('hero')
 
-       document.getElementById('resetEl').textContent = 'Play again'       
 
-        renderElement(rock)
-        document.getElementById("resetEl").style.display = 'block'
-        
-        
-              document.getElementById('resetEl').addEventListener('click', function renderReset() {
-                  
-        document.getElementById("paper").style.display = 'block'
-        document.getElementById("scissor").style.display = 'block'
-        document.getElementById("resetEl").style.display = 'none'
-        document.getElementById("rival").style.display = 'none'
-        winnerEl.style.display = 'none'
-        })
-        
-    } else if (data.element === "paper") {
-        document.getElementById("rock").style.display = 'none'
-        document.getElementById("scissor").style.display = 'none'
-        rollOfHand(data.element)
 
-        document.getElementById('resetEl').textContent = 'Play again'       
-        
-        renderElement(paper)
-        document.getElementById("resetEl").style.display = 'block'
+    renderGame()
 
-                document.getElementById('resetEl').addEventListener('click', function renderReset() {
-        document.getElementById("rock").style.display = 'block'
-        document.getElementById("scissor").style.display = 'block'
-        document.getElementById("resetEl").style.display = 'none'
-        document.getElementById("rival").style.display = 'none'
-        winnerEl.style.display = 'none'
-        })
-        
-        
-    } else if (data.element === "scissor") {
-        document.getElementById("rock").style.display = 'none'
-        document.getElementById("paper").style.display = 'none'
-        rollOfHand(data.element)
-        
-        document.getElementById('resetEl').textContent = 'Play again'       
 
-        renderElement(scissor)
-        document.getElementById("resetEl").style.display = 'block'
+function renderGame() {
+resetEl.style.display = 'none'
 
-                document.getElementById('resetEl').addEventListener('click', function renderReset() {
-        document.getElementById("rock").style.display = 'block'
-        document.getElementById("paper").style.display = 'block'
-        document.getElementById("resetEl").style.display = 'none'
-        document.getElementById("rival").style.display = 'none'
-        winnerEl.style.display = 'none'
-        })
-        
-    }
+rock.addEventListener('click', function() {
+    playerSelection('rock')
+    randomize('rock')
 })
 
+paper.addEventListener('click', function() {
+    playerSelection('paper')
+    randomize('paper')
+})
+
+scissor.addEventListener('click', function() {
+    playerSelection('scissor')
+    randomize('scissor')
+})}
+
+let secondElement = ''
+
+function playerSelection(firstElement) {
+    firstEl.innerHTML = `<div>${firstElement}</div>`
+    document.getElementById("vs").innerHTML =`<div>vs</div>`
 }
 
-renderElement(rock)
-renderElement(paper)
-renderElement(scissor)
-
-function rollOfHand(element) {
+function randomize(element) {
     let randomRoll = Math.floor(Math.random()*3)+1
-    
-    if(randomRoll === 1 ) {
-          winnerEl.style.display = 'block'
-          document.getElementById("rival").style.display = 'block'
-          rivalHand.innerHTML = `<div class="rivalElements"><div id="vsEl">VS</div>
-          <div class="rock-img hand" class="resultElements">
-                             </div></div>`
-                             
-          if (element === 'rock') {
-             winnerEl.innerHTML = 'Draw' 
-          } else if (element === 'paper') {
-              winnerEl.innerHTML = 'You win' 
-          } else if (element === 'scissor') {
-             winnerEl.innerHTML = 'You lose' 
-          }
-                             
-                             
-    } else if (randomRoll === 2 ) {
+   
+      if (randomRoll === 1) {
+        secondElement = 'rock'
         
-       
-        winnerEl.style.display = 'block'
-        document.getElementById("rival").style.display = 'block'
-         rivalHand.innerHTML = `<div class="rivalElements"><div id="vsEl">VS</div>
-          <div class="paper-img hand" class="resultElements">
-                             </div>`
-                             
-           if (element === 'paper') {
-             winnerEl.innerHTML = 'Draw' 
-          } else if (element === 'rock') {
-              winnerEl.innerHTML = 'You lose' 
-          }  else if (element === 'scissor') {
-             winnerEl.innerHTML = 'You win' 
-          }
-                             
-    } else {
-      
-         winnerEl.style.display = 'block'
-        document.getElementById("rival").style.display = 'block'
-         rivalHand.innerHTML = `<div class="rivalElements"><div id="vsEl">VS</div>
-          <div class="scissor-img hand" class="resultElements">
-                             </div>`
-        
-             if (element === 'scissor') {
-             winnerEl.innerHTML = 'Draw' 
-          } else if (element === 'rock') {
-              winnerEl.innerHTML = 'You win' 
-          } else if (element === 'paper') {
-             winnerEl.innerHTML = 'You lose' 
-          }
-        
+    } else if(randomRoll === 2) {
+        secondElement = 'paper'
+    } else if (randomRoll === 3){
+        secondElement = 'scissor'
     }
+    secondEl.innerHTML = `<div>${secondElement}</div>`
+   
+message(element,secondElement)
 }
 
-
-random.addEventListener('click', function() {
-    let randomRoll = Math.floor(Math.random()*3)
-    let randomRoll2 = Math.floor(Math.random()*3)
-      
-    
-    let randomArray = [
-            
-            [
-            "rock",
-            "images/rock.png"],
-            [
-            "paper",
-            "images/paper.jpg"],
-            [
-            "scissor",
-            "images/scissor.webp"
-            ]
-             ]
-    
-document.getElementById("rock").style.display = 'none'  
-document.getElementById("paper").style.display = 'none' 
-document.getElementById("scissor").style.display = 'none' 
-
-
- 
-document.getElementById(`${randomArray[randomRoll][0]}`).style.display = 'block'   
-        rivalHand.innerHTML = `<div class="rivalElements"><div id="vsEl">VS</div>
-                                 <div class="${randomArray[randomRoll2][0]}-img hand" class="resultElements">
-                                 </div></div>`
-document.getElementById("resetEl").style.display = 'block'   
+let messages = document.getElementById('messageEl')
+let scoreEl = document.getElementById('scoreEl')
+let count = 0
+let countArray = []
+let secondCount = 0
+let secondCountArray = []
 
 
 
-document.getElementById('resetEl').addEventListener('click', function renderReset() {
+
+function message(element,secondElement) {
+    // For rock
+    if(element === 'rock' && secondElement === 'rock') {
+        messages.innerHTML = `<div class="draw">Draw</div>`
         
-
-console.log('test')
-
+    } else if(element === 'rock' && secondElement === 'paper') {
+        messages.innerHTML = `<div class="friendship">You lose, paper beats rock!</div>`
+        secondCount += 1
+        scorePc.textContent = `Computer score: ${secondCount}`
+        
+    } else if(element === 'rock' && secondElement === 'scissor') {
+        messages.innerHTML = `<div class="revenge">You win, rock beats scissor!</div>`
+        count += 1
+        scoreHuman.textContent = `Your score: ${count}`
+    }
     
-  
-        })
-document.getElementById('resetEl').textContent = 'Play again'  
+    // For paper
+      else if (element === 'paper' && secondElement === 'rock') {
+        messages.innerHTML = `<div class="friendship">You win, paper beats rock!</div>`
+        count += 1
+        scoreHuman.textContent = `Your score: ${count}`
+        
+      } else if (element === 'paper' && secondElement === 'paper') {
+        messages.innerHTML = `<div class="draw">Draw</div>`
+        
+      } else if (element === 'paper' && secondElement === 'scissor') {
+        messages.innerHTML = `<div class="murder">You lose, scissor beats paper!</div>`
+        secondCount += 1
+        scorePc.textContent = `Computer score: ${secondCount}` 
+      }
+      
+      // For scissor
+      
+        else if (element === 'scissor' && secondElement === 'scissor') {
+        messages.innerHTML = `<div class="draw">Draw</div>`
+       
+        } else if (element === 'scissor' && secondElement === 'paper') {
+        messages.innerHTML = `<div class="murder">You win, scissor beats paper!</div>`
+        count += 1
+        scoreHuman.textContent = `Your score: ${count}`
+        
+        } else if (element === 'scissor' && secondElement === 'rock') {
+        messages.innerHTML = `<div class="revenge">You lose, rock beats scissor!</div>`
+        secondCount += 1
+        scorePc.textContent = `Computer score: ${secondCount}`
+        } 
+      
+      
+    arrayFunction()
+    }
+let round = 0
+let roundTwo = 0
 
-if (randomRoll === randomRoll2) {
-    winnerEl.innerHTML = 'Draw' 
+function arrayFunction() {
+    if (count === 5){
+        console.log("you won")
+        
+        messages.innerHTML = `You won this round!`
+        win()
+        
+        resetEl.style.display = 'block'
+        count = 0
+        round +=1
+        scoreHuman.textContent = `Your score: ${count} Round: ${round}`
+        secondCount = 0
+        scorePc.textContent = `Computer score: ${secondCount}`
+    } else if (secondCount === 5){
+        console.log("pc won")
+        
+        messages.innerHTML = `You lost this round!`
+        lose()
+        
+        resetEl.style.display = 'block'
+        count = 0
+        secondCount = 0
+        roundTwo +=1
+        scorePc.textContent = `Computer score: ${secondCount} Round: ${roundTwo}`
+        scoreHuman.textContent = `Your score: ${count} `
+    }
     
-} else if (randomRoll === 0 && randomRoll2 === 2) {
-    winnerEl.innerHTML = 'You win' 
-} else if (randomRoll === 0 && randomRoll2 === 1) {
-    winnerEl.innerHTML = 'You lose'
+    }
 
-
-} else if (randomRoll === 1 && randomRoll2 === 0) {
-    winnerEl.innerHTML = 'You win' 
-} else if (randomRoll === 1 && randomRoll2 === 2) {
-    winnerEl.innerHTML = 'You lose' 
-
-
-} else if (randomRoll === 2 && randomRoll2 === 1) {
-    winnerEl.innerHTML = 'You win'
-} else if (randomRoll === 2 && randomRoll2 === 0) {
-    winnerEl.innerHTML = 'You lose'
-} else { 
-     winnerEl.innerHTML = 'You win'
- }
-
- 
+resetEl.addEventListener('click', function(){
+window.location.reload()      
 })
+
+function win() {
+let winBeat = new Audio('/sounds/Fatality.mp3');
+winBeat.play()
+}
+
+function lose() {
+ let loseBeat = new Audio('/sounds/waah.mp3');
+loseBeat.play()   
+}
 

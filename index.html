@@ -1,28 +1,44 @@
-
 <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="index.css">
-      <title>Document</title>
-  </head>
-  <body>
-  <div class="hero">
-      <h1>Let's play a game of rock, paper, scissor!!</h1>
-          <div id="elementsEl" class="elements">
-          <button id="random" class="random-btn">Random selection</button>
-         
-          <button id="rock" class="rock-img hand"></button>
-  
-          <button id="paper" class="paper-img hand"></button>
-  
-          <button id="scissor" class="scissor-img hand"></button>
-          </div>
-          <div id="results-container" class="result"></div>
-          <button id="reset-btn">Play again</button>
-  </div>
-  
-   <script src="index.pack.js"></script>   
-  </body>
-  </html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Rock, paper, scissor</title>
+</head>
+<body>
+    
+<div id="hero">
+    
+    <h1>Let's play a game of rock, paper, scissor!</h1>
+           <div class="scores">
+               <div id="scoreHuman">Your score: 0</div> <div id="scorePc">Computer score: 0</div>
+           </div>
+            
+            <div id="winnerEl"></div>
+        <div id="elementsEl" class="elements">
+            <div class="rock-img hand" id="rock"></div>
+            <div class="paper-img hand" id="paper"></div>
+            <div class="scissor-img hand" id="scissor"></div>
+        </div>
+        <div id="container" class="firstContainer">
+
+            <div class="secondContainer">
+                <div id="firstEl"></div>
+                <div id="vs"></div>
+                <div id="secondEl"></div>
+            </div>    
+            <div>
+                <div id="messageEl" class="imageMessage">
+            </div>
+        </div>
+        <div>
+             
+        </div>
+        <button id="resetEl">Next game</button>
+</div>
+
+
+ <script src="index.pack.js"></script>   
+</body>
+</html>
