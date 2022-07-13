@@ -135,11 +135,9 @@ let roundTwo = 0
 
 function arrayFunction() {
     if (count === 5){
-        console.log("you won")
         
         messages.innerHTML = `You won this round!`
         win()
-        
         resetEl.style.display = 'block'
         count = 0
         round +=1
@@ -147,11 +145,9 @@ function arrayFunction() {
         secondCount = 0
         scorePc.textContent = `Computer score: ${secondCount}`
     } else if (secondCount === 5){
-        console.log("pc won")
         
         messages.innerHTML = `You lost this round!`
         lose()
-        
         resetEl.style.display = 'block'
         count = 0
         secondCount = 0
