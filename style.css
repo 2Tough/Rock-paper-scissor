@@ -1,120 +1,160 @@
-body {
+html, body {
     margin: 0;
-    background-color: cornsilk;
+    padding: 0;
+    margin-left: 3rem;
+    margin-right: 3rem;
 }
 
-.hand {
-    margin: 3rem;
-}
-
-#winnerEl {
-    font-size: 3rem;
-    font-weight: 900;
-    padding-top: 0.5em;
-    
-}
-
-.hero {
-    
-    background: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    border: double orange 8px;
-    
-    }
-
-.rock-img {
-    background: url(./images/rock.png);
-    background-size: cover;
-    padding: 5rem;
-    cursor: pointer;
-    border: none;
-    background-color: white;
-}
-
-.paper-img {
-    background: url(./images/paper.jpg);
-    background-size: cover;
-    padding: 5rem;
-    cursor: pointer;
-    border: none;
-}
-
-.scissor-img {
-    background: url(./images/scissor.webp);
-    background-size: cover;
-    padding: 5rem;
-    cursor: pointer;
-    border: none;
-}
-
-.showRock {
-     
-     background-size: cover;
-     width: 10rem;
-     border: solid blue 1px;
-     
-}
-
-#vsEL {
-    
-    padding: 2rem;
-    margin: 2rem;
-    font-size: 4rem;
-     text-align: center;
-    font-weight: 900;
-}
-
-#rival {
-    display: flex;
-    flex-direction: column;
-    font-size: 3rem;
-    font-weight: 900;
-    
-    align-content: space-between;
+h1 {
     text-align: center;
+     font-size: 3rem
+}
+
+#start {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem 2rem;
+    font-size: 2rem;
+    font-weight: 900;
     
 }
 
 
-
-.rivalElements {
+#elementsEl {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    padding: 1rem;
 }
 
+#rock,#paper,#scissor {
+    padding: 5rem;
+    margin-right: 1rem;
 
+}
 
-.resultElements {
-    
+img {
+    height: 100%;
+    width: auto;
+}
+
+/* layout*/
+
+.scores {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     justify-content: center;
-    flex-direction: row;
-    padding: 3rem;
-    align-items: center;
+    padding-bottom: 1rem;
+    line-height: 1.5;
+    font-size: 15px;
+    font-weight: 700;
     
 }
 
 .elements {
-    padding: 2rem;
     display: flex;
+    justify-content: center;
+    background: orange
+}
+
+.rock-img {
+    background: url(./images/rock.png);
+    background-size: cover;
+}
+
+.paper-img {
+    background: url(./images/paper2.png);
+    background-size: cover;
+}
+
+.scissor-img {
+    background: url(./images/scissors2.png);
+    background-size: cover;
+    
+}
+
+.firstContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.secondContainer {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem
+              
+}
+
+.imageMessage {
+    justify-content: center;
+    text-align: center;
+    padding: 10rem;
+    font-size: 3rem
+}
+
+#rock:hover {
+    cursor: pointer;
+}
+
+#hero {
+    
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#container {
+    display: flex;
+}
+
+#firstEl,#secondEl,#messageEl,#vs {
+    padding: 1rem;
+}
+
+/* Results */
+
+.friendship,.murder,.revenge,.draw  {
+  
+    background-size: cover;
+    padding: 4rem;
+    object-fit: scale-down;
+    background-position: center; 
+}
+
+
+.friendship {
+    background: url(./images/friendship.png);
+    
+}
+
+.murder {
+    background: url(./images/murder.png);
+  
+}
+
+.revenge {
+    background: url(./images/revenge.png);
+    padding: 3rem;
 
 }
 
-button {
-    font-size: 1.5rem;
-    font-weight: 900;
-    padding: 0.8rem 1.5rem;
-    border: 2px solid black
+.draw {
+    background: url(./images/draw.jpeg);
+    padding: 9rem;
+    background-size: contain;
+
 }
 
 #resetEl {
-    margin-bottom: 1rem;
+    justify-content: center;
+    align-self: center;
+    border: black 2px solid;
+    padding: 1.5rem 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    width: 30%;
 }
+
+/* Mini animation*/
 
 .hand:hover {
     animation: shake 0.6s infinite;
@@ -135,5 +175,28 @@ button {
     }
     100% {
         transform: translate(-1px,1px) rotate(-1deg);
+    }
+}
+
+@media (max-width: 650px) {
+    .elements {
+        flex-direction: column;
+    }
+    
+    .hand {
+        width: 3px;
+        height: auto;
+        align-self: center;
+        margin: 2rem 0rem 2rem 0rem;
+        
+    }
+    
+    .friendship,.murder,.draw,.revenge {
+        padding: 1rem;
+        
+    }
+    
+    .secondContainer {
+      font-size: 2rem;  
     }
 }
