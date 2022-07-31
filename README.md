@@ -11,5 +11,4 @@ I restarted and learned that:
 4 - How to create 2 branches for the same project in github.
 
 Overall I'm pretty happy with the results. I tried to use objects to practice in my first version and used assets from it to complete
-the final version. Though for some reason githack does not display the app properly, I tried it in scrimba: https://scrimba.com/scrim/cLNJrrHR
-and it does work as intended.
+the final version.
