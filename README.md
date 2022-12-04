@@ -12,3 +12,5 @@ I restarted and learned that:
 
 Overall I'm pretty happy with the results. I tried to use objects to practice in my first version and used assets from it to complete
 the final version.
+
+Live preview: https://strong-souffle-142854.netlify.app/
